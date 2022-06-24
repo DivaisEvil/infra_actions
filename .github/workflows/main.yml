@@ -73,8 +73,10 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          # passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+          #passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
-            docker system prune --all --y
-            docker volume prune --y
+            # Выполняет pull образа с DockerHub
+            # sudo docker pull <имя-пользователя>/<имя-репозитория>
+            #остановка всех контейнеров
+            sudo docker stop
             sudo docker run --rm -d -p 5000:5000 divais/yamdb:latest
