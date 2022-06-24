@@ -75,6 +75,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           #passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
-            docker system prune --all 
-            docker volume prune  
+            docker system prune --all -y
+            docker volume prune -y
             sudo docker run --rm -d -p 5000:5000 divais/yamdb:latest
